@@ -1,0 +1,6 @@
+---
+# tasks file for execute-command
+
+- name: execute command
+  become: yes
+  shell: "touch example.txt"
