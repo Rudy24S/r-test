@@ -1,0 +1,8 @@
+---
+# tasks file for replace-file
+
+- name: Replace File
+  become: yes
+  template:
+    src: example.txt
+    dest: /home/ec2-user/
