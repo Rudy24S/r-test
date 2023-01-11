@@ -3,4 +3,4 @@
 
 - name: execute command
   become: yes
-  shell: "touch example.txt"
+  shell: "touch {{ example_variable }}.txt"
