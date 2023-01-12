@@ -1,0 +1,27 @@
+---
+# tasks file for add-elastic-repo
+
+- name: APT - Key
+  become: yes
+  apt_key: 
+    url: "{{ es_public_signing_key_url }}"
+    state: present
+
+
+- name: APT - Transport Https
+  become: yes
+  apt: 
+    name: apt-transport-https
+    update_cache: yes
+
+
+- name: APT - Add repo
+  become: yes
+  apt_repository: 
+    repo: deb {{ es_repo_url }} stable main
+    state: present
+
+- name: Update
+  become: yes
+  apt: 
+    update_cache: yes

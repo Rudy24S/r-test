@@ -1,0 +1,8 @@
+---
+# tasks file for java
+
+- name: Install Java
+  become: yes
+  apt: 
+    name: openjdk-17-jdk
+    update_cache: yes

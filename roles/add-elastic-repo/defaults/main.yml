@@ -1,0 +1,5 @@
+---
+# defaults file for add-elastic-repo
+
+es_public_signing_key_url: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+es_repo_url: https://artifacts.elastic.co/packages/8.x/apt

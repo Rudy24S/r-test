@@ -1,0 +1,33 @@
+---
+# tasks file for logstash
+
+- name: Install Logstash
+  become: yes
+  apt: 
+    name: logstash
+    update_cache: yes
+
+- name: Replace Default Logstash Configuration File
+  become: yes
+  template:
+    src: logstash.yml
+    dest: /etc/logstash/logstash.yml
+
+- name: Replace Default Pipelines Configuration File
+  become: yes
+  template:
+    src: pipelines.yml
+    dest: /etc/logstash/pipelines.yml
+
+- name: Add Test Pipeline Configuration File
+  become: yes
+  template:
+    src:
+    dest: /etc/logstash/conf.d/
+
+- name: Start Logstash
+  become: yes
+  service:
+    name: logstash
+    state: started
+    enabled: yes

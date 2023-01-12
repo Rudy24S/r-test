@@ -1,0 +1,28 @@
+---
+# defaults file for elasticsearch
+
+es_path_home: /usr/share/elasticsearch
+es_path_conf: /etc/elasticsearch
+es_group: elasticsearch
+es_owner: root
+es_mode: 0660
+
+cluster_name: cluster-1
+node_name: node-1
+
+path_data: /var/lib/elasticsearch 
+path_logs: /var/log/elasticsearch
+
+network_host: 0.0.0.0 
+http_port: 9200
+
+discovery_type: single-node
+
+# X-pack config
+xpack_security_enabled: true
+
+es_api_protocol: "http"
+es_api_host: "localhost"
+es_api_port: 9200
+es_api_uri: "{{ es_api_protocol }}://{{ es_api_host }}:{{ es_api_port}}"
+es_security_api: _security

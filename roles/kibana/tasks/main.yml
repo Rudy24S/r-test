@@ -1,0 +1,21 @@
+---
+# Install Kibana 
+
+- name: Install Kibana
+  become: yes
+  apt: 
+    name: kibana
+    update_cache: yes
+
+- name: Replace Default Kibana Configuration File
+  become: yes
+  template:
+    src: kibana.yml
+    dest: /etc/kibana/kibana.yml
+
+- name: Start Kibana
+  become: yes
+  service:
+    name: kibana
+    state: started
+    enabled: yes

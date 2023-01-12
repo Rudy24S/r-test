@@ -1,0 +1,24 @@
+---
+
+#Install Elastic Search
+
+- name: Install Elastic Search
+  become: yes
+  apt: 
+    name: elasticsearch
+
+- name: Replace Default Elasticsearch Configuration File
+  become: yes
+  template:
+    src: elasticsearch.yml
+    dest: /etc/elasticsearch/elasticsearch.yml
+
+#- name: Start Elasticsearch
+  #become: yes
+  #service:
+    #name: elasticsearch
+    #state: started
+    #enabled: yes
+
+- name: Include Xpack Secuirty Setup Config
+  include: security/keystore.yml
